@@ -73,6 +73,7 @@ namespace World_Boss_Next_Time
             int BTS = 0, BWS = 0;
             BossStage(ref BTS, ref BWS);
             BossStageChk(ref BTS, ref BWS);
+            BossListView(BTS, BWS);
             ViewBossData(bosstimecht[0, BTS], bosstimecht[1, BTS], BWS, bossname[BTS, BWS, 0], bossname[BTS, BWS, 1], bossphoto[BTS, BWS, 0], bossphoto[BTS, BWS, 1]);
 
             void ViewBossData(string bth, string btm, int week, string bn1, string bn2, Bitmap bp1, Bitmap bp2)
@@ -134,6 +135,38 @@ namespace World_Boss_Next_Time
                 }
             }
 
+            void BossStageAdd(ref DateTime listviewdate,ref int BossTimeStage, ref int BossWeekStage)
+            {
+                int TC = allbosstime.Count() - 1;
+                if (BossTimeStage>=TC)
+                {
+                    listviewdate = listviewdate.AddDays(1);
+                    BossTimeStage = 0;
+                    BossWeekStage += 1;
+                }
+                else
+                {
+                    BossTimeStage += 1;
+                }
+            }
+
+            void BossListView(int lvBTS,int lvBWS)
+            {
+                listView1.Items.Clear();
+                string tYMD = tyear + "-" + tmonth + "-" + tday;
+                DateTime dt = Convert.ToDateTime(tYMD);
+
+                for (int t = 1; t<= 6; t++)
+                {
+                    var lvi = new ListViewItem(dt.ToString("yyyy/MM/dd"));
+                    lvi.SubItems.Add(bosstimecht[0, lvBTS] + ":" + bosstimecht[1, lvBTS]);
+                    lvi.SubItems.Add(bossname[lvBTS, lvBWS, 0] + bossname[lvBTS, lvBWS, 1]);
+
+                    listView1.Items.Add(lvi);
+                    BossStageAdd(ref dt, ref lvBTS, ref lvBWS);
+                }
+            }
+
         }
         
         public void NowDateTime(ref string tyear,ref string tmonth,ref string tday,ref string thour,ref string tminute,ref string tweek)
@@ -172,18 +205,56 @@ namespace World_Boss_Next_Time
         private void TextBox1Click(object sender, EventArgs e)
         {
             ((TextBox)sender).SelectAll();
+            GC.Collect();
         }
 
         private void Button1Click(object sender, EventArgs e)
         {
             Clipboard.SetData(DataFormats.Text, textBox1.Text);
+            GC.Collect();
         }
 
-        public void Button2Click(object sender, EventArgs e)
+        private void Button2Click(object sender, EventArgs e)
         {
             NowDateTime(ref tyear, ref tmonth, ref tday, ref thour, ref tminute, ref tweek);
             GetBossNextTime(tyear, tmonth, tday, thour, tminute, tweek);
             GC.Collect();
         }
+
+        private void Button3Click(object sender, EventArgs e)
+        {
+            if (listView1.Visible == true)
+            {
+                listView1.Items[0].Focused = true;
+                listView1.Items[0].Selected = true;
+                listView1.Visible = false;
+            }
+            else
+            {
+                listView1.Items[0].Focused = true;
+                listView1.Items[0].Selected = true;
+                listView1.Visible = true;
+            }
+            GC.Collect();
+        }
+
+        private void ItemViewSelectionChg(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            var ivs = listView1.SelectedItems;
+            if (listView1.SelectedItems.Count > 0)
+            {
+                textBox1.Text = null;
+                for (int t = 0; ivs.Count-1  > t; t++)
+                {
+                    string[] ivsHHMM = ivs[t].SubItems[1].Text.Split(':');
+                    textBox1.Text += "€" + ivsHHMM[0] + ivsHHMM[1] + " " + ivs[t].SubItems[2].Text + "\r\n";
+                }
+                int et = ivs.Count - 1;
+                string[] eivsHHMM = ivs[et].SubItems[1].Text.Split(':');
+                textBox1.Text += "€" + eivsHHMM[0] + eivsHHMM[1] + " " + ivs[et].SubItems[2].Text;
+            }
+            GC.Collect();
+        }
+
     }
 }
