@@ -225,13 +225,13 @@ namespace World_Boss_Next_Time
         {
             if (listView1.Visible == true)
             {
-                listView1.Items[0].Focused = true;
+                listView1.SelectedItems.Clear();
                 listView1.Items[0].Selected = true;
                 listView1.Visible = false;
             }
             else
             {
-                listView1.Items[0].Focused = true;
+                listView1.SelectedItems.Clear();
                 listView1.Items[0].Selected = true;
                 listView1.Visible = true;
             }
