@@ -142,9 +142,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App\World Boss Next Time v1.0.0.0.exe" />
-    <Content Include="App\World Boss Next Time v1.0.0.1.exe" />
-    <Content Include="App\World Boss Next Time v1.0.1.0.exe" />
-    <Content Include="App\World Boss Next Time v1.0.1.1.exe" />
+    <None Include="App\World Boss Next Time v1.0.0.1.exe" />
+    <None Include="App\World Boss Next Time v1.0.1.0.exe" />
+    <None Include="App\World Boss Next Time v1.0.1.1.exe" />
+    <None Include="App\World Boss Next Time v1.0.2.0.exe" />
     <Content Include="Cultures-Torah.ico" />
   </ItemGroup>
   <ItemGroup />

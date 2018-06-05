@@ -31,7 +31,12 @@
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "0000/00/00",
             "00:00",
-            "--"}, -1);
+            "--"}, -1, System.Drawing.Color.Empty, System.Drawing.Color.YellowGreen, null);
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("0000/00/00");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("0000/00/00");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("0000/00/00");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("0000/00/00");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("0000/00/00");
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -65,15 +70,17 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.listView1);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 11.25F);
             this.groupBox1.Location = new System.Drawing.Point(14, 64);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(624, 268);
+            this.groupBox1.Size = new System.Drawing.Size(624, 342);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -90,17 +97,24 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.listView1.HideSelection = false;
             listViewItem1.StateImageIndex = 0;
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem1,
+            listViewItem2,
+            listViewItem3,
+            listViewItem4,
+            listViewItem5,
+            listViewItem6});
             this.listView1.Location = new System.Drawing.Point(6, 26);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(612, 226);
+            this.listView1.Size = new System.Drawing.Size(612, 180);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.Visible = false;
             this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.ItemViewSelectionChg);
+            this.listView1.VisibleChanged += new System.EventHandler(this.ItemViewVisibleChg);
             // 
             // columnHeader1
             // 
@@ -161,24 +175,23 @@
             // 
             this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox1.HideSelection = false;
-            this.textBox1.Location = new System.Drawing.Point(14, 340);
+            this.textBox1.Location = new System.Drawing.Point(6, 257);
             this.textBox1.Margin = new System.Windows.Forms.Padding(5);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(624, 27);
+            this.textBox1.Size = new System.Drawing.Size(612, 27);
             this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "textBox1";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox1.Text = "textBox1\r\n1\r\n2\r\n3\r\n4\r\n5";
             this.textBox1.Click += new System.EventHandler(this.TextBox1Click);
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
+            this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(14, 377);
+            this.button1.Location = new System.Drawing.Point(6, 292);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(624, 35);
+            this.button1.Size = new System.Drawing.Size(612, 44);
             this.button1.TabIndex = 2;
             this.button1.TabStop = false;
             this.button1.Text = "複製";
@@ -216,11 +229,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 424);
+            this.ClientSize = new System.Drawing.Size(652, 418);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold);
@@ -231,10 +242,10 @@
             this.Name = "Form1";
             this.Text = "Black Desert World Boss Next Time";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
