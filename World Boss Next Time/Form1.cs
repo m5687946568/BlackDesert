@@ -17,7 +17,7 @@ namespace World_Boss_Next_Time
         string tday = "00";
         string thour = "00";
         string tminute = "00";
-        string tweek = "00";
+        string tweek = "0";
         
         public Form1()
         {
@@ -126,7 +126,7 @@ namespace World_Boss_Next_Time
                 {
                     if (tHM <= allbosstime[t] && tHM > allbosstime[t - 1]) { BossTimeStage = t; }
                 }
-                if (tHM <= allbosstime[0]) { TodayDate = TodayDate.AddDays(1); BossTimeStage = 0; }
+                if (tHM <= allbosstime[0]) { BossTimeStage = 0; }
                 if (tHM > allbosstime[TC]) { TodayDate = TodayDate.AddDays(1); BossTimeStage = 0; }
 
                 //取得星期

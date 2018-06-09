@@ -141,7 +141,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App\World Boss Next Time v1.1.exe" />
+    <None Include="App\Old\World Boss Next Time v1.1.exe" />
+    <None Include="App\World Boss Next Time v1.2.exe" />
     <Content Include="Cultures-Torah.ico" />
   </ItemGroup>
   <ItemGroup />
