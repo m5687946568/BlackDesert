@@ -11,6 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -28,7 +29,6 @@
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -146,6 +146,7 @@
     <None Include="App\World Boss Next Time v1.0.1.0.exe" />
     <None Include="App\World Boss Next Time v1.0.1.1.exe" />
     <None Include="App\World Boss Next Time v1.0.2.0.exe" />
+    <None Include="App\World Boss Next Time v1.1.exe" />
     <Content Include="Cultures-Torah.ico" />
   </ItemGroup>
   <ItemGroup />

@@ -17,22 +17,31 @@ namespace World_Boss_Next_Time
         string tday = "00";
         string thour = "00";
         string tminute = "00";
-        string tweek = "0";
+        string tweek = "00";
         
         public Form1()
         {
             InitializeComponent();
-            NowDateTime(ref tyear, ref tmonth, ref tday, ref thour, ref tminute, ref tweek);
-            GetBossNextTime(tyear, tmonth, tday, thour, tminute, tweek);
+            try
+            {
+                NowDateTime(ref tyear, ref tmonth, ref tday, ref thour, ref tminute, ref tweek);
+                GetBossNextTime(tyear, tmonth, tday, thour, tminute, tweek);
+            }
+            catch
+            {
+                MessageBox.Show("Error!");
+                this.Close();
+                Environment.Exit(Environment.ExitCode);
+            }
             GC.Collect();
         }
 
         public void GetBossNextTime(string todayyear, string todaymonth, string todayday, string todayhour, string todayminute, string todayweek)
         {
-            //TodayDateTime TDT = new TodayDateTime();
+            int BTS = 0, BWS = 0;
             int tHM = Convert.ToInt16(thour + tminute);
+            DateTime tYMD = Convert.ToDateTime(tyear + "-" + tmonth + "-" + tday);
             label1.Text = "現在時間：" + tyear + "／" + tmonth + "／" + tday + "　" + thour + "：" + tminute + "　" + GetWeekCht(tweek);
-
 
             //出現時間
             int[] allbosstime = { 0200, 1100, 1500, 1900, 2330 };
@@ -70,30 +79,18 @@ namespace World_Boss_Next_Time
                     { { p5, p0 }, { p1, p2 }, { p1, p3 }, { p3, p4 }, { p2, p4 }, { p6, p7 }, { p0, p0 } }
             };
 
-            int BTS = 0, BWS = 0;
-            BossStage(ref BTS, ref BWS);
-            BossStageChk(ref BTS, ref BWS);
-            BossListView(BTS, BWS);
-            ViewBossData(bosstimecht[0, BTS], bosstimecht[1, BTS], BWS, bossname[BTS, BWS, 0], bossname[BTS, BWS, 1], bossphoto[BTS, BWS, 0], bossphoto[BTS, BWS, 1]);
+            BossStage(ref tYMD, ref BTS, ref BWS);
+            BossStageChk(ref tYMD, ref BTS, ref BWS);
+            BossListView(tYMD, BTS, BWS);
+            ViewBossData(tYMD, bosstimecht[0, BTS], bosstimecht[1, BTS], BWS, bossname[BTS, BWS, 0], bossname[BTS, BWS, 1], bossphoto[BTS, BWS, 0], bossphoto[BTS, BWS, 1]);
 
-            void ViewBossData(string bth, string btm, int week, string bn1, string bn2, Bitmap bp1, Bitmap bp2)
-            {
-                textBox1.Text = "€" + bth + btm + " " + bn1 + bn2;
-                groupBox1.Text = "下次世界王時間：" + tyear + "／" + tmonth + "／" + tday + "　" + bth + "：" + btm + "　" + GetWeekCht(week.ToString());
-                label2.Text = bn1;
-                label3.Text = bn2;
-                pictureBox1.Image = bp1;
-                pictureBox2.Image = bp2;
-            }
 
-            void BossListView(int lvBTS, int lvBWS)
+            void BossListView(DateTime lvDate, int lvBTS, int lvBWS)
             {
                 listView1.Items.Clear();
-                string tYMD = tyear + "-" + tmonth + "-" + tday;
-                DateTime dt = Convert.ToDateTime(tYMD);
 
                 //第一項
-                var lvi = new ListViewItem(dt.ToString("yyyy/MM/dd"));
+                var lvi = new ListViewItem(lvDate.ToString("yyyy/MM/dd"));
                 lvi.BackColor = Color.YellowGreen;
                 lvi.SubItems.Add(bosstimecht[0, lvBTS] + ":" + bosstimecht[1, lvBTS]);
                 lvi.SubItems.Add(bossname[lvBTS, lvBWS, 0] + bossname[lvBTS, lvBWS, 1]);
@@ -103,24 +100,34 @@ namespace World_Boss_Next_Time
                 //後n項
                 for (int n = 1; n <= 5; n++)
                 {
-                    BossStageAdd(ref dt, ref lvBTS, ref lvBWS);
-                    lvi = new ListViewItem(dt.ToString("yyyy/MM/dd"));
+                    BossStageAdd(ref lvDate, ref lvBTS, ref lvBWS);
+                    lvi = new ListViewItem(lvDate.ToString("yyyy/MM/dd"));
                     lvi.SubItems.Add(bosstimecht[0, lvBTS] + ":" + bosstimecht[1, lvBTS]);
                     lvi.SubItems.Add(bossname[lvBTS, lvBWS, 0] + bossname[lvBTS, lvBWS, 1]);
                     listView1.Items.Add(lvi);
                 }
             }
 
-            void BossStage(ref int BossTimeStage, ref int BossWeekStage)
+            void ViewBossData(DateTime TodayDate, string bth, string btm, int week, string bn1, string bn2, Bitmap bp1, Bitmap bp2)
             {
-                //取得時段
+                textBox1.Text = "€" + bth + btm + " " + bn1 + bn2;
+                groupBox1.Text = "下次世界王時間：" + TodayDate.ToString("yyyy/MM/dd") + "　" + bth + "：" + btm + "　" + GetWeekCht(week.ToString());
+                label2.Text = bn1;
+                label3.Text = bn2;
+                pictureBox1.Image = bp1;
+                pictureBox2.Image = bp2;
+            }
+
+            void BossStage(ref DateTime TodayDate, ref int BossTimeStage, ref int BossWeekStage)
+            {
+                //取得日期及時段
                 int TC = allbosstime.Count() - 1;
                 for (int t=1; t <= TC; t++)
                 {
                     if (tHM <= allbosstime[t] && tHM > allbosstime[t - 1]) { BossTimeStage = t; }
                 }
-                if (tHM <= allbosstime[0]) { BossTimeStage = 0; }
-                if (tHM > allbosstime[TC]) { BossTimeStage = 0; }
+                if (tHM <= allbosstime[0]) { TodayDate = TodayDate.AddDays(1); BossTimeStage = 0; }
+                if (tHM > allbosstime[TC]) { TodayDate = TodayDate.AddDays(1); BossTimeStage = 0; }
 
                 //取得星期
                 int weeknumber = Convert.ToInt16(tweek);
@@ -138,14 +145,14 @@ namespace World_Boss_Next_Time
                 }
             }
 
-            void BossStageChk(ref int BossTimeStage, ref int BossWeekStage)
+            void BossStageChk(ref DateTime TodayDate, ref int BossTimeStage, ref int BossWeekStage)
             {
                 int TC = allbosstime.Count() - 1;
-                if (bossname[BTS, BWS, 0] == null && bossname[BTS, BWS, 1] == null)
+                if (bossname[BossTimeStage, BossWeekStage, 0] == null && bossname[BossTimeStage, BossWeekStage, 1] == null)
                 {
-                    if (BossTimeStage <= TC) { BossTimeStage += 1; }
-                    if (BossTimeStage > TC)
+                    if (BossTimeStage >= TC)
                     {
+                        TodayDate = TodayDate.AddDays(1);
                         BossTimeStage = 0;
                         if (BossWeekStage >= 6)
                         {
@@ -156,22 +163,33 @@ namespace World_Boss_Next_Time
                             BossWeekStage += 1;
                         }
                     }
-                    
+                    else
+                    {
+                        BossTimeStage += 1;
+                    }
                 }
             }
 
-            void BossStageAdd(ref DateTime listviewdate,ref int BossTimeStage, ref int BossWeekStage)
+            void BossStageAdd(ref DateTime TodayDate, ref int BossTimeStage, ref int BossWeekStage)
             {
                 int TC = allbosstime.Count() - 1;
-                if (BossTimeStage>=TC)
+                if (BossTimeStage >= TC)
                 {
-                    listviewdate = listviewdate.AddDays(1);
+                    TodayDate = TodayDate.AddDays(1);
                     BossTimeStage = 0;
-                    BossWeekStage += 1;
+                    if (BossWeekStage < 6)
+                    {
+                        BossWeekStage += 1;
+                    }
+                    else
+                    {
+                        BossWeekStage = 0;
+                    }
                 }
                 else
                 {
                     BossTimeStage += 1;
+                    BossStageChk(ref TodayDate, ref BossTimeStage, ref BossWeekStage);
                 }
             }
 
@@ -282,5 +300,6 @@ namespace World_Boss_Next_Time
             listView1.Items[0].Selected = true;
             GC.Collect();
         }
+
     }
 }
