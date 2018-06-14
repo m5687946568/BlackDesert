@@ -60,22 +60,23 @@ namespace World_Boss_Next_Time
             Bitmap p5 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b5); string b5 = "《█奧平》";
             Bitmap p6 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b6); string b6 = "《▲木拉卡》";
             Bitmap p7 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b7); string b7 = "《▼肯恩特》";
+            Bitmap p8 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b8); string b8 = "《〆貝爾》";
 
             //各時段出現種類名稱及圖片 array[出現時段,星期,王1王2]
             string[,,] bossname = new string[,,]
                 {
                     { { b3, b4 }, { b1, b2 }, { b3, b0 }, { b4, b0 }, { b2, b0 }, { b1, b3 }, { b1, b2 } },
                     { { b1, b3 }, { b4, b0 }, { b1, b2 }, { b1, b3 }, { b2, b0 }, { b5, b0 }, { b2, b4 } },
-                    { { b2, b0 }, { b1, b2 }, { b3, b0 }, { b4, b0 }, { b1, b3 }, { b3, b4 }, { b5, b0 } },
-                    { { b3, b4 }, { b4, b0 }, { b2, b0 }, { b1, b2 }, { b3, b0 }, { b1, b2 }, { b1, b3 } },
+                    { { b8, b0 }, { b1, b2 }, { b3, b0 }, { b4, b0 }, { b1, b3 }, { b3, b4 }, { b5, b0 } },
+                    { { b2, b4 }, { b4, b0 }, { b2, b0 }, { b1, b2 }, { b3, b0 }, { b1, b2 }, { b1, b3 } },
                     { { b5, b0 }, { b1, b2 }, { b1, b3 }, { b3, b4 }, { b2, b4 }, { b6, b7 }, { b0, b0 } }
             };
             Bitmap[,,] bossphoto = new Bitmap[,,]
                 {
                     { { p3, p4 }, { p1, p2 }, { p3, p0 }, { p4, p0 }, { p2, p0 }, { p1, p3 }, { p1, p2 } },
                     { { p1, p3 }, { p4, p0 }, { p1, p2 }, { p1, p3 }, { p2, p0 }, { p5, p0 }, { p2, p4 } },
-                    { { p2, p0 }, { p1, p2 }, { p3, p0 }, { p4, p0 }, { p1, p3 }, { p3, p4 }, { p5, p0 } },
-                    { { p3, p4 }, { p4, p0 }, { p2, p0 }, { p1, p2 }, { p3, p0 }, { p1, p2 }, { p1, p3 } },
+                    { { p8, p0 }, { p1, p2 }, { p3, p0 }, { p4, p0 }, { p1, p3 }, { p3, p4 }, { p5, p0 } },
+                    { { p2, p4 }, { p4, p0 }, { p2, p0 }, { p1, p2 }, { p3, p0 }, { p1, p2 }, { p1, p3 } },
                     { { p5, p0 }, { p1, p2 }, { p1, p3 }, { p3, p4 }, { p2, p4 }, { p6, p7 }, { p0, p0 } }
             };
 
