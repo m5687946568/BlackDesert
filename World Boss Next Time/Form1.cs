@@ -61,6 +61,7 @@ namespace World_Boss_Next_Time
             Bitmap p6 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b6); string b6 = "《▲木拉卡》";
             Bitmap p7 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b7); string b7 = "《▼肯恩特》";
             Bitmap p8 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b8); string b8 = "《〆貝爾》";
+            BossFilter(ref b1, ref b2, ref b3, ref b4, ref b5, ref b6, ref b7, ref b8);
 
             //各時段出現種類名稱及圖片 array[出現時段,星期,王1王2]
             string[,,] bossname = new string[,,]
@@ -149,25 +150,42 @@ namespace World_Boss_Next_Time
             void BossStageChk(ref DateTime TodayDate, ref int BossTimeStage, ref int BossWeekStage)
             {
                 int TC = allbosstime.Count() - 1;
-                if (bossname[BossTimeStage, BossWeekStage, 0] == null && bossname[BossTimeStage, BossWeekStage, 1] == null)
+                int BNTC = (bossname.Length) / 2;
+                for(int temp=1;temp<=BNTC;temp++)
                 {
-                    if (BossTimeStage >= TC)
+                    if (bossname[BossTimeStage, BossWeekStage, 0] == null && bossname[BossTimeStage, BossWeekStage, 1] == null)
                     {
-                        TodayDate = TodayDate.AddDays(1);
-                        BossTimeStage = 0;
-                        if (BossWeekStage >= 6)
+                        if (BossTimeStage >= TC)
                         {
-                            BossWeekStage = 0;
+                            TodayDate = TodayDate.AddDays(1);
+                            BossTimeStage = 0;
+                            if (BossWeekStage >= 6)
+                            {
+                                BossWeekStage = 0;
+                            }
+                            else
+                            {
+                                BossWeekStage += 1;
+                            }
                         }
                         else
                         {
-                            BossWeekStage += 1;
+                            BossTimeStage += 1;
                         }
                     }
-                    else
+                    if (bossname[BossTimeStage, BossWeekStage, 0] == null && bossname[BossTimeStage, BossWeekStage, 1] != null)
                     {
-                        BossTimeStage += 1;
+                        bossname[BossTimeStage, BossWeekStage, 0] = bossname[BossTimeStage, BossWeekStage, 1];
+                        bossphoto[BossTimeStage, BossWeekStage, 0] = bossphoto[BossTimeStage, BossWeekStage, 1];
+                        bossname[BossTimeStage, BossWeekStage, 1] = null;
+                        bossphoto[BossTimeStage, BossWeekStage, 1] = null;
                     }
+                }
+                if (bossname[BossTimeStage, BossWeekStage, 0] == null && bossname[BossTimeStage, BossWeekStage, 1] == null)
+                {
+                    TodayDate = Convert.ToDateTime(9487 + "-" + 08 + "-" + 07);
+                    BossTimeStage = 0;
+                    BossWeekStage = 0;
                 }
             }
 
@@ -186,12 +204,33 @@ namespace World_Boss_Next_Time
                     {
                         BossWeekStage = 0;
                     }
+                    BossStageChk(ref TodayDate, ref BossTimeStage, ref BossWeekStage);
                 }
                 else
                 {
                     BossTimeStage += 1;
                     BossStageChk(ref TodayDate, ref BossTimeStage, ref BossWeekStage);
                 }
+            }
+
+            void BossFilter(ref string boss1, ref string boss2, ref string boss3, ref string boss4, ref string boss5, ref string boss6, ref string boss7, ref string boss8)
+            {
+                b1chkbox.Text = b1;
+                b2chkbox.Text = b2;
+                b3chkbox.Text = b3;
+                b4chkbox.Text = b4;
+                b5chkbox.Text = b5;
+                b6chkbox.Text = b6;
+                b7chkbox.Text = b7;
+                b8chkbox.Text = b8;
+                if (b1chkbox.Checked == false) { b1 = null; p1 = null; }
+                if (b2chkbox.Checked == false) { b2 = null; p2 = null; }
+                if (b3chkbox.Checked == false) { b3 = null; p3 = null; }
+                if (b4chkbox.Checked == false) { b4 = null; p4 = null; }
+                if (b5chkbox.Checked == false) { b5 = null; p5 = null; }
+                if (b6chkbox.Checked == false) { b6 = null; p6 = null; }
+                if (b7chkbox.Checked == false) { b7 = null; p7 = null; }
+                if (b8chkbox.Checked == false) { b8 = null; p8 = null; }
             }
 
         }
@@ -229,6 +268,70 @@ namespace World_Boss_Next_Time
             }
         }
 
+        public void ItemViewChgLine()
+        {
+            if (checkBox1.Checked == true)
+            {
+                checkBox1.Text = "換行";
+                var ivs = listView1.SelectedItems;
+                if(listView1.SelectedItems.Count == 1)
+                {
+                    textBox1.Text = null;
+                    string[] sivsHHMM = ivs[0].SubItems[1].Text.Split(':');
+                    textBox1.Text += "€" + sivsHHMM[0] + sivsHHMM[1] + " " + ivs[0].SubItems[2].Text;
+                }
+                if (listView1.SelectedItems.Count > 1)
+                {
+                    textBox1.Text = null;
+                    string[] sivsHHMM = ivs[0].SubItems[1].Text.Split(':');
+                    textBox1.Text += "€" + sivsHHMM[0] + sivsHHMM[1] + " " + ivs[0].SubItems[2].Text;
+                    for (int t = 1; ivs.Count - 1 >= t; t++)
+                    {
+                        string[] ivsHHMM = ivs[t].SubItems[1].Text.Split(':');
+                        textBox1.Text += "\r\n" + "€" + ivsHHMM[0] + ivsHHMM[1] + " " + ivs[t].SubItems[2].Text;
+                    }
+                }
+                GC.Collect();
+            }
+            else
+            {
+                checkBox1.Text = "不換行";
+                var ivs = listView1.SelectedItems;
+                string ItemViewTemp = null;
+                string[] IVRS = new string[] { "○", "●", "★", "☆", "█", "▲", "▼", "〆", "《" };
+                int IVRSC = IVRS.Length - 1;
+                if (listView1.SelectedItems.Count == 1)
+                {
+                    textBox1.Text = null;
+                    string[] sivsHHMM = ivs[0].SubItems[1].Text.Split(':');
+                    textBox1.Text += "€" + sivsHHMM[0] + sivsHHMM[1] + " " + ivs[0].SubItems[2].Text;
+                }
+                if (listView1.SelectedItems.Count > 1)
+                {
+                    textBox1.Text = null;
+                    ItemViewTemp = ivs[0].SubItems[2].Text;
+                    for (int tt = 0; tt <= IVRSC; tt++)
+                    {
+                        ItemViewTemp = ItemViewTemp.Replace("》", " ").Replace(IVRS[tt], "");
+                    }
+                    string[] sivsHHMM = ivs[0].SubItems[1].Text.Split(':');
+                    textBox1.Text += "€" + sivsHHMM[0] + sivsHHMM[1] + " " + ItemViewTemp;
+
+                    for (int t = 1; ivs.Count - 1 >= t; t++)
+                    {
+                        ItemViewTemp = ivs[t].SubItems[2].Text;
+                        for (int tt = 0; tt <= IVRSC; tt++)
+                        {
+                            ItemViewTemp = ItemViewTemp.Replace("》", " ").Replace(IVRS[tt], "");
+                        }
+                        string[] ivsHHMM = ivs[t].SubItems[1].Text.Split(':');
+                        textBox1.Text += "€" + ivsHHMM[0] + ivsHHMM[1] + " " + ItemViewTemp;
+                    }
+                }
+                GC.Collect();
+            }
+        }
+
         private void TextBox1Click(object sender, EventArgs e)
         {
             ((TextBox)sender).SelectAll();
@@ -260,6 +363,7 @@ namespace World_Boss_Next_Time
                 textBox1.Location = new Point(6, 257);
                 button1.Size = new Size(612, 44);
                 button1.Location = new Point(6, 292);
+                checkBox1.Visible = false;
                 listView1.Visible = false;
             }
             else
@@ -272,6 +376,7 @@ namespace World_Boss_Next_Time
                 textBox1.Location = new Point(6, 214);
                 button1.Size = new Size(107, 120);
                 button1.Location = new Point(511, 214);
+                checkBox1.Visible = true;
                 listView1.Visible = true;
             }
             GC.Collect();
@@ -279,20 +384,7 @@ namespace World_Boss_Next_Time
 
         private void ItemViewSelectionChg(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            var ivs = listView1.SelectedItems;
-            if (listView1.SelectedItems.Count > 0)
-            {
-                textBox1.Text = null;
-                string[] sivsHHMM = ivs[0].SubItems[1].Text.Split(':');
-                textBox1.Text += "€" + sivsHHMM[0] + sivsHHMM[1] + " " + ivs[0].SubItems[2].Text;
-
-                for (int t = 1; ivs.Count-1  >= t; t++)
-                {
-                    string[] ivsHHMM = ivs[t].SubItems[1].Text.Split(':');
-                    textBox1.Text += "\r\n" + "€" + ivsHHMM[0] + ivsHHMM[1] + " " + ivs[t].SubItems[2].Text;
-                }
-            }
-            GC.Collect();
+            ItemViewChgLine();
         }
 
         private void ItemViewVisibleChg(object sender, EventArgs e)
@@ -302,5 +394,23 @@ namespace World_Boss_Next_Time
             GC.Collect();
         }
 
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (panel1.Visible == true)
+            {
+                GetBossNextTime(tyear, tmonth, tday, thour, tminute, tweek);
+                panel1.Visible = false;
+            }
+            else
+            {
+                panel1.Visible = true;
+            }
+            GC.Collect();
+        }
+
+        private void CheckBox1CkhChg(object sender, EventArgs e)
+        {
+            ItemViewChgLine();
+        }
     }
 }

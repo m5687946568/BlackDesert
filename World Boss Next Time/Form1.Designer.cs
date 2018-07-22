@@ -40,8 +40,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.b8chkbox = new System.Windows.Forms.CheckBox();
+            this.b7chkbox = new System.Windows.Forms.CheckBox();
+            this.b6chkbox = new System.Windows.Forms.CheckBox();
+            this.b5chkbox = new System.Windows.Forms.CheckBox();
+            this.b4chkbox = new System.Windows.Forms.CheckBox();
+            this.b3chkbox = new System.Windows.Forms.CheckBox();
+            this.b2chkbox = new System.Windows.Forms.CheckBox();
+            this.b1chkbox = new System.Windows.Forms.CheckBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -50,9 +60,11 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -70,13 +82,16 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panel1);
+            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.listView1);
             this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 11.25F);
             this.groupBox1.Location = new System.Drawing.Point(14, 64);
             this.groupBox1.Name = "groupBox1";
@@ -84,6 +99,158 @@
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.b8chkbox);
+            this.panel1.Controls.Add(this.b7chkbox);
+            this.panel1.Controls.Add(this.b6chkbox);
+            this.panel1.Controls.Add(this.b5chkbox);
+            this.panel1.Controls.Add(this.b4chkbox);
+            this.panel1.Controls.Add(this.b3chkbox);
+            this.panel1.Controls.Add(this.b2chkbox);
+            this.panel1.Controls.Add(this.b1chkbox);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 23);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(618, 316);
+            this.panel1.TabIndex = 9;
+            this.panel1.Visible = false;
+            // 
+            // b8chkbox
+            // 
+            this.b8chkbox.AutoSize = true;
+            this.b8chkbox.BackColor = System.Drawing.SystemColors.Control;
+            this.b8chkbox.Checked = true;
+            this.b8chkbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.b8chkbox.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.b8chkbox.Location = new System.Drawing.Point(359, 157);
+            this.b8chkbox.Name = "b8chkbox";
+            this.b8chkbox.Size = new System.Drawing.Size(116, 28);
+            this.b8chkbox.TabIndex = 7;
+            this.b8chkbox.TabStop = false;
+            this.b8chkbox.Text = "b8chkbox";
+            this.b8chkbox.UseVisualStyleBackColor = false;
+            // 
+            // b7chkbox
+            // 
+            this.b7chkbox.AutoSize = true;
+            this.b7chkbox.BackColor = System.Drawing.SystemColors.Control;
+            this.b7chkbox.Checked = true;
+            this.b7chkbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.b7chkbox.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.b7chkbox.Location = new System.Drawing.Point(359, 123);
+            this.b7chkbox.Name = "b7chkbox";
+            this.b7chkbox.Size = new System.Drawing.Size(116, 28);
+            this.b7chkbox.TabIndex = 6;
+            this.b7chkbox.TabStop = false;
+            this.b7chkbox.Text = "b7chkbox";
+            this.b7chkbox.UseVisualStyleBackColor = false;
+            // 
+            // b6chkbox
+            // 
+            this.b6chkbox.AutoSize = true;
+            this.b6chkbox.BackColor = System.Drawing.SystemColors.Control;
+            this.b6chkbox.Checked = true;
+            this.b6chkbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.b6chkbox.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.b6chkbox.Location = new System.Drawing.Point(359, 89);
+            this.b6chkbox.Name = "b6chkbox";
+            this.b6chkbox.Size = new System.Drawing.Size(116, 28);
+            this.b6chkbox.TabIndex = 5;
+            this.b6chkbox.TabStop = false;
+            this.b6chkbox.Text = "b6chkbox";
+            this.b6chkbox.UseVisualStyleBackColor = false;
+            // 
+            // b5chkbox
+            // 
+            this.b5chkbox.AutoSize = true;
+            this.b5chkbox.BackColor = System.Drawing.SystemColors.Control;
+            this.b5chkbox.Checked = true;
+            this.b5chkbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.b5chkbox.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.b5chkbox.Location = new System.Drawing.Point(359, 55);
+            this.b5chkbox.Name = "b5chkbox";
+            this.b5chkbox.Size = new System.Drawing.Size(116, 28);
+            this.b5chkbox.TabIndex = 4;
+            this.b5chkbox.TabStop = false;
+            this.b5chkbox.Text = "b5chkbox";
+            this.b5chkbox.UseVisualStyleBackColor = false;
+            // 
+            // b4chkbox
+            // 
+            this.b4chkbox.AutoSize = true;
+            this.b4chkbox.BackColor = System.Drawing.SystemColors.Control;
+            this.b4chkbox.Checked = true;
+            this.b4chkbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.b4chkbox.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.b4chkbox.Location = new System.Drawing.Point(136, 157);
+            this.b4chkbox.Name = "b4chkbox";
+            this.b4chkbox.Size = new System.Drawing.Size(116, 28);
+            this.b4chkbox.TabIndex = 3;
+            this.b4chkbox.TabStop = false;
+            this.b4chkbox.Text = "b4chkbox";
+            this.b4chkbox.UseVisualStyleBackColor = false;
+            // 
+            // b3chkbox
+            // 
+            this.b3chkbox.AutoSize = true;
+            this.b3chkbox.BackColor = System.Drawing.SystemColors.Control;
+            this.b3chkbox.Checked = true;
+            this.b3chkbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.b3chkbox.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.b3chkbox.Location = new System.Drawing.Point(136, 123);
+            this.b3chkbox.Name = "b3chkbox";
+            this.b3chkbox.Size = new System.Drawing.Size(116, 28);
+            this.b3chkbox.TabIndex = 2;
+            this.b3chkbox.TabStop = false;
+            this.b3chkbox.Text = "b3chkbox";
+            this.b3chkbox.UseVisualStyleBackColor = false;
+            // 
+            // b2chkbox
+            // 
+            this.b2chkbox.AutoSize = true;
+            this.b2chkbox.BackColor = System.Drawing.SystemColors.Control;
+            this.b2chkbox.Checked = true;
+            this.b2chkbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.b2chkbox.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.b2chkbox.Location = new System.Drawing.Point(136, 89);
+            this.b2chkbox.Name = "b2chkbox";
+            this.b2chkbox.Size = new System.Drawing.Size(116, 28);
+            this.b2chkbox.TabIndex = 1;
+            this.b2chkbox.TabStop = false;
+            this.b2chkbox.Text = "b2chkbox";
+            this.b2chkbox.UseVisualStyleBackColor = false;
+            // 
+            // b1chkbox
+            // 
+            this.b1chkbox.AutoSize = true;
+            this.b1chkbox.BackColor = System.Drawing.SystemColors.Control;
+            this.b1chkbox.Checked = true;
+            this.b1chkbox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.b1chkbox.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.b1chkbox.Location = new System.Drawing.Point(136, 55);
+            this.b1chkbox.Name = "b1chkbox";
+            this.b1chkbox.Size = new System.Drawing.Size(116, 28);
+            this.b1chkbox.TabIndex = 0;
+            this.b1chkbox.TabStop = false;
+            this.b1chkbox.Text = "b1chkbox";
+            this.b1chkbox.UseVisualStyleBackColor = false;
+            // 
+            // button4
+            // 
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button4.Location = new System.Drawing.Point(439, -2);
+            this.button4.Margin = new System.Windows.Forms.Padding(0);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(57, 25);
+            this.button4.TabIndex = 7;
+            this.button4.TabStop = false;
+            this.button4.Text = "篩選";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label3
             // 
@@ -95,18 +262,24 @@
             this.label3.Text = "label3";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // button1
+            // checkBox1
             // 
-            this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(6, 292);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(612, 44);
-            this.button1.TabIndex = 2;
-            this.button1.TabStop = false;
-            this.button1.Text = "複製";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1Click);
+            this.checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBox1.Location = new System.Drawing.Point(431, 306);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(72, 28);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.TabStop = false;
+            this.checkBox1.Text = "換行";
+            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBox1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.checkBox1.UseVisualStyleBackColor = false;
+            this.checkBox1.Visible = false;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1CkhChg);
             // 
             // pictureBox2
             // 
@@ -198,6 +371,19 @@
             this.textBox1.Text = "textBox1\r\n1\r\n2\r\n3\r\n4\r\n5";
             this.textBox1.Click += new System.EventHandler(this.TextBox1Click);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button1.Location = new System.Drawing.Point(6, 292);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(612, 44);
+            this.button1.TabIndex = 2;
+            this.button1.TabStop = false;
+            this.button1.Text = "複製";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1Click);
+            // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold);
@@ -232,8 +418,8 @@
             this.ClientSize = new System.Drawing.Size(652, 418);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -243,6 +429,8 @@
             this.Text = "Black Desert World Boss Next Time";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -265,6 +453,17 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox b1chkbox;
+        private System.Windows.Forms.CheckBox b8chkbox;
+        private System.Windows.Forms.CheckBox b7chkbox;
+        private System.Windows.Forms.CheckBox b6chkbox;
+        private System.Windows.Forms.CheckBox b5chkbox;
+        private System.Windows.Forms.CheckBox b4chkbox;
+        private System.Windows.Forms.CheckBox b3chkbox;
+        private System.Windows.Forms.CheckBox b2chkbox;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

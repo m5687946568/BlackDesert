@@ -144,7 +144,8 @@
     <None Include="Resources\b8.png" />
     <None Include="App\Old\World Boss Next Time v1.1.exe" />
     <None Include="App\Old\World Boss Next Time v1.2.exe" />
-    <Content Include="App\World Boss Next Time v1.3.exe" />
+    <Content Include="App\Old\World Boss Next Time v1.3.exe" />
+    <Content Include="App\World Boss Next Time v1.4.exe" />
     <Content Include="Cultures-Torah.ico" />
   </ItemGroup>
   <ItemGroup />
