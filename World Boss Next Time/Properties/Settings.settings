@@ -1,7 +1,33 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="World_Boss_Next_Time.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="StartString" Type="System.String" Scope="User">
+      <Value Profile="(Default)">〆</Value>
+    </Setting>
+    <Setting Name="BossName1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">克價卡</Value>
+    </Setting>
+    <Setting Name="BossName2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">庫屯</Value>
+    </Setting>
+    <Setting Name="BossName3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">羅裴勒</Value>
+    </Setting>
+    <Setting Name="BossName4" Type="System.String" Scope="User">
+      <Value Profile="(Default)">卡嵐達</Value>
+    </Setting>
+    <Setting Name="BossName5" Type="System.String" Scope="User">
+      <Value Profile="(Default)">奧平</Value>
+    </Setting>
+    <Setting Name="BossName6" Type="System.String" Scope="User">
+      <Value Profile="(Default)">木拉卡</Value>
+    </Setting>
+    <Setting Name="BossName7" Type="System.String" Scope="User">
+      <Value Profile="(Default)">肯恩特</Value>
+    </Setting>
+    <Setting Name="BossName8" Type="System.String" Scope="User">
+      <Value Profile="(Default)">貝爾</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

@@ -18,7 +18,7 @@ namespace World_Boss_Next_Time
         string thour = "00";
         string tminute = "00";
         string tweek = "0";
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -53,14 +53,14 @@ namespace World_Boss_Next_Time
 
             //世界王名字及圖片
             Bitmap p0 = null; string b0 = null;
-            Bitmap p1 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b1); string b1 = "《○克價卡》";
-            Bitmap p2 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b2); string b2 = "《●庫屯》";
-            Bitmap p3 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b3); string b3 = "《★羅裴勒》";
-            Bitmap p4 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b4); string b4 = "《☆卡嵐達》";
-            Bitmap p5 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b5); string b5 = "《█奧平》";
-            Bitmap p6 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b6); string b6 = "《▲木拉卡》";
-            Bitmap p7 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b7); string b7 = "《▼肯恩特》";
-            Bitmap p8 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b8); string b8 = "《〆貝爾》";
+            Bitmap p1 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b1); string b1 = World_Boss_Next_Time.Properties.Settings.Default.BossName1;
+            Bitmap p2 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b2); string b2 = World_Boss_Next_Time.Properties.Settings.Default.BossName2;
+            Bitmap p3 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b3); string b3 = World_Boss_Next_Time.Properties.Settings.Default.BossName3;
+            Bitmap p4 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b4); string b4 = World_Boss_Next_Time.Properties.Settings.Default.BossName4;
+            Bitmap p5 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b5); string b5 = World_Boss_Next_Time.Properties.Settings.Default.BossName5;
+            Bitmap p6 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b6); string b6 = World_Boss_Next_Time.Properties.Settings.Default.BossName6;
+            Bitmap p7 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b7); string b7 = World_Boss_Next_Time.Properties.Settings.Default.BossName7;
+            Bitmap p8 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b8); string b8 = World_Boss_Next_Time.Properties.Settings.Default.BossName8;
             BossFilter(ref b1, ref b2, ref b3, ref b4, ref b5, ref b6, ref b7, ref b8);
 
             //各時段出現種類名稱及圖片 array[出現時段,星期,王1王2]
@@ -95,7 +95,7 @@ namespace World_Boss_Next_Time
                 var lvi = new ListViewItem(lvDate.ToString("yyyy/MM/dd"));
                 lvi.BackColor = Color.YellowGreen;
                 lvi.SubItems.Add(bosstimecht[0, lvBTS] + ":" + bosstimecht[1, lvBTS]);
-                lvi.SubItems.Add(bossname[lvBTS, lvBWS, 0] + bossname[lvBTS, lvBWS, 1]);
+                lvi.SubItems.Add(bossname[lvBTS, lvBWS, 0] + " " + bossname[lvBTS, lvBWS, 1]);
                 listView1.Items.Add(lvi);
                 listView1.Items[0].Selected = true;
 
@@ -105,14 +105,15 @@ namespace World_Boss_Next_Time
                     BossStageAdd(ref lvDate, ref lvBTS, ref lvBWS);
                     lvi = new ListViewItem(lvDate.ToString("yyyy/MM/dd"));
                     lvi.SubItems.Add(bosstimecht[0, lvBTS] + ":" + bosstimecht[1, lvBTS]);
-                    lvi.SubItems.Add(bossname[lvBTS, lvBWS, 0] + bossname[lvBTS, lvBWS, 1]);
+                    lvi.SubItems.Add(bossname[lvBTS, lvBWS, 0] + " " + bossname[lvBTS, lvBWS, 1]);
                     listView1.Items.Add(lvi);
                 }
             }
 
             void ViewBossData(DateTime TodayDate, string bth, string btm, int week, string bn1, string bn2, Bitmap bp1, Bitmap bp2)
             {
-                textBox1.Text = "€" + bth + btm + " " + bn1 + bn2;
+                string startstring = World_Boss_Next_Time.Properties.Settings.Default.StartString;
+                textBox1.Text = startstring + bth + btm + " " + bn1 + " " + bn2;
                 groupBox1.Text = "下次世界王時間：" + TodayDate.ToString("yyyy/MM/dd") + "　" + bth + "：" + btm + "　" + GetWeekCht(week.ToString());
                 label2.Text = bn1;
                 label3.Text = bn2;
@@ -270,6 +271,7 @@ namespace World_Boss_Next_Time
 
         public void ItemViewChgLine()
         {
+            string startstring = World_Boss_Next_Time.Properties.Settings.Default.StartString;
             if (checkBox1.Checked == true)
             {
                 checkBox1.Text = "換行";
@@ -278,18 +280,20 @@ namespace World_Boss_Next_Time
                 {
                     textBox1.Text = null;
                     string[] sivsHHMM = ivs[0].SubItems[1].Text.Split(':');
-                    textBox1.Text += "€" + sivsHHMM[0] + sivsHHMM[1] + " " + ivs[0].SubItems[2].Text;
+                    textBox1.Text += startstring + sivsHHMM[0] + sivsHHMM[1] + " " + ivs[0].SubItems[2].Text;
                 }
                 if (listView1.SelectedItems.Count > 1)
                 {
                     textBox1.Text = null;
                     string[] sivsHHMM = ivs[0].SubItems[1].Text.Split(':');
-                    textBox1.Text += "€" + sivsHHMM[0] + sivsHHMM[1] + " " + ivs[0].SubItems[2].Text;
-                    for (int t = 1; ivs.Count - 1 >= t; t++)
+                    textBox1.Text += startstring + sivsHHMM[0] + sivsHHMM[1] + " " + ivs[0].SubItems[2].Text;
+                    for (int t = 1; ivs.Count - 2 >= t; t++)
                     {
                         string[] ivsHHMM = ivs[t].SubItems[1].Text.Split(':');
-                        textBox1.Text += "\r\n" + "€" + ivsHHMM[0] + ivsHHMM[1] + " " + ivs[t].SubItems[2].Text;
+                        textBox1.Text += "\r\n" + startstring + ivsHHMM[0] + ivsHHMM[1] + " " + ivs[t].SubItems[2].Text;
                     }
+                    string[] eivsHHMM = ivs[ivs.Count - 1].SubItems[1].Text.Split(':');
+                    textBox1.Text += "\r\n" + startstring + eivsHHMM[0] + eivsHHMM[1] + " " + ivs[ivs.Count - 1].SubItems[2].Text;
                 }
                 GC.Collect();
             }
@@ -297,36 +301,25 @@ namespace World_Boss_Next_Time
             {
                 checkBox1.Text = "不換行";
                 var ivs = listView1.SelectedItems;
-                string ItemViewTemp = null;
-                string[] IVRS = new string[] { "○", "●", "★", "☆", "█", "▲", "▼", "〆", "《" };
-                int IVRSC = IVRS.Length - 1;
                 if (listView1.SelectedItems.Count == 1)
                 {
                     textBox1.Text = null;
                     string[] sivsHHMM = ivs[0].SubItems[1].Text.Split(':');
-                    textBox1.Text += "€" + sivsHHMM[0] + sivsHHMM[1] + " " + ivs[0].SubItems[2].Text;
+                    textBox1.Text += startstring + sivsHHMM[0] + sivsHHMM[1] + " " + ivs[0].SubItems[2].Text;
                 }
                 if (listView1.SelectedItems.Count > 1)
                 {
                     textBox1.Text = null;
-                    ItemViewTemp = ivs[0].SubItems[2].Text;
-                    for (int tt = 0; tt <= IVRSC; tt++)
-                    {
-                        ItemViewTemp = ItemViewTemp.Replace("》", " ").Replace(IVRS[tt], "");
-                    }
                     string[] sivsHHMM = ivs[0].SubItems[1].Text.Split(':');
-                    textBox1.Text += "€" + sivsHHMM[0] + sivsHHMM[1] + " " + ItemViewTemp;
-
-                    for (int t = 1; ivs.Count - 1 >= t; t++)
+                    textBox1.Text += startstring + sivsHHMM[0] + sivsHHMM[1] + " " + ivs[0].SubItems[2].Text;
+                    for (int t = 1; ivs.Count - 2 >= t; t++)
                     {
-                        ItemViewTemp = ivs[t].SubItems[2].Text;
-                        for (int tt = 0; tt <= IVRSC; tt++)
-                        {
-                            ItemViewTemp = ItemViewTemp.Replace("》", " ").Replace(IVRS[tt], "");
-                        }
                         string[] ivsHHMM = ivs[t].SubItems[1].Text.Split(':');
-                        textBox1.Text += "€" + ivsHHMM[0] + ivsHHMM[1] + " " + ItemViewTemp;
+                        textBox1.Text += " " + startstring + ivsHHMM[0] + ivsHHMM[1] + " " + ivs[t].SubItems[2].Text;
                     }
+                    string[] eivsHHMM = ivs[ivs.Count - 1].SubItems[1].Text.Split(':');
+                    textBox1.Text += " " + startstring + eivsHHMM[0] + eivsHHMM[1] + " " + ivs[ivs.Count - 1].SubItems[2].Text;
+                    
                 }
                 GC.Collect();
             }
@@ -411,6 +404,37 @@ namespace World_Boss_Next_Time
         private void CheckBox1CkhChg(object sender, EventArgs e)
         {
             ItemViewChgLine();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (panel2.Visible == true)
+            {
+                World_Boss_Next_Time.Properties.Settings.Default.BossName1 = textBoxPS1.Text;
+                World_Boss_Next_Time.Properties.Settings.Default.BossName2 = textBoxPS2.Text;
+                World_Boss_Next_Time.Properties.Settings.Default.BossName3 = textBoxPS3.Text;
+                World_Boss_Next_Time.Properties.Settings.Default.BossName4 = textBoxPS4.Text;
+                World_Boss_Next_Time.Properties.Settings.Default.BossName5 = textBoxPS5.Text;
+                World_Boss_Next_Time.Properties.Settings.Default.BossName6 = textBoxPS6.Text;
+                World_Boss_Next_Time.Properties.Settings.Default.BossName7 = textBoxPS7.Text;
+                World_Boss_Next_Time.Properties.Settings.Default.BossName8 = textBoxPS8.Text;
+                World_Boss_Next_Time.Properties.Settings.Default.Save();
+                GetBossNextTime(tyear, tmonth, tday, thour, tminute, tweek);
+                panel2.Visible = false;
+            }
+            else
+            {
+                textBoxPS1.Text = World_Boss_Next_Time.Properties.Settings.Default.BossName1;
+                textBoxPS2.Text = World_Boss_Next_Time.Properties.Settings.Default.BossName2;
+                textBoxPS3.Text = World_Boss_Next_Time.Properties.Settings.Default.BossName3;
+                textBoxPS4.Text = World_Boss_Next_Time.Properties.Settings.Default.BossName4;
+                textBoxPS5.Text = World_Boss_Next_Time.Properties.Settings.Default.BossName5;
+                textBoxPS6.Text = World_Boss_Next_Time.Properties.Settings.Default.BossName6;
+                textBoxPS7.Text = World_Boss_Next_Time.Properties.Settings.Default.BossName7;
+                textBoxPS8.Text = World_Boss_Next_Time.Properties.Settings.Default.BossName8;
+                panel2.Visible = true;
+            }
+            GC.Collect();
         }
     }
 }

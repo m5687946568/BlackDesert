@@ -63,10 +63,21 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.textBoxPS1 = new System.Windows.Forms.TextBox();
+            this.textBoxPS2 = new System.Windows.Forms.TextBox();
+            this.textBoxPS3 = new System.Windows.Forms.TextBox();
+            this.textBoxPS4 = new System.Windows.Forms.TextBox();
+            this.textBoxPS5 = new System.Windows.Forms.TextBox();
+            this.textBoxPS6 = new System.Windows.Forms.TextBox();
+            this.textBoxPS7 = new System.Windows.Forms.TextBox();
+            this.textBoxPS8 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -82,6 +93,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.panel2);
+            this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.panel1);
             this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.label3);
@@ -242,7 +255,7 @@
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button4.Location = new System.Drawing.Point(439, -2);
+            this.button4.Location = new System.Drawing.Point(436, -1);
             this.button4.Margin = new System.Windows.Forms.Padding(0);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(57, 25);
@@ -401,7 +414,7 @@
             // 
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(510, 62);
+            this.button3.Location = new System.Drawing.Point(510, 63);
             this.button3.Margin = new System.Windows.Forms.Padding(0);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(117, 25);
@@ -411,6 +424,110 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.Button3Click);
             // 
+            // button5
+            // 
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button5.Location = new System.Drawing.Point(376, -1);
+            this.button5.Margin = new System.Windows.Forms.Padding(0);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(57, 25);
+            this.button5.TabIndex = 10;
+            this.button5.TabStop = false;
+            this.button5.Text = "設定";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.textBoxPS8);
+            this.panel2.Controls.Add(this.textBoxPS7);
+            this.panel2.Controls.Add(this.textBoxPS6);
+            this.panel2.Controls.Add(this.textBoxPS5);
+            this.panel2.Controls.Add(this.textBoxPS4);
+            this.panel2.Controls.Add(this.textBoxPS3);
+            this.panel2.Controls.Add(this.textBoxPS2);
+            this.panel2.Controls.Add(this.textBoxPS1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(3, 23);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(618, 316);
+            this.panel2.TabIndex = 8;
+            this.panel2.Visible = false;
+            // 
+            // textBoxPS1
+            // 
+            this.textBoxPS1.Location = new System.Drawing.Point(81, 71);
+            this.textBoxPS1.MaxLength = 10;
+            this.textBoxPS1.Name = "textBoxPS1";
+            this.textBoxPS1.Size = new System.Drawing.Size(197, 27);
+            this.textBoxPS1.TabIndex = 0;
+            this.textBoxPS1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxPS2
+            // 
+            this.textBoxPS2.Location = new System.Drawing.Point(81, 104);
+            this.textBoxPS2.MaxLength = 10;
+            this.textBoxPS2.Name = "textBoxPS2";
+            this.textBoxPS2.Size = new System.Drawing.Size(197, 27);
+            this.textBoxPS2.TabIndex = 1;
+            this.textBoxPS2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxPS3
+            // 
+            this.textBoxPS3.Location = new System.Drawing.Point(81, 137);
+            this.textBoxPS3.MaxLength = 10;
+            this.textBoxPS3.Name = "textBoxPS3";
+            this.textBoxPS3.Size = new System.Drawing.Size(197, 27);
+            this.textBoxPS3.TabIndex = 2;
+            this.textBoxPS3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxPS4
+            // 
+            this.textBoxPS4.Location = new System.Drawing.Point(81, 170);
+            this.textBoxPS4.MaxLength = 10;
+            this.textBoxPS4.Name = "textBoxPS4";
+            this.textBoxPS4.Size = new System.Drawing.Size(197, 27);
+            this.textBoxPS4.TabIndex = 3;
+            this.textBoxPS4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxPS5
+            // 
+            this.textBoxPS5.Location = new System.Drawing.Point(340, 71);
+            this.textBoxPS5.MaxLength = 10;
+            this.textBoxPS5.Name = "textBoxPS5";
+            this.textBoxPS5.Size = new System.Drawing.Size(197, 27);
+            this.textBoxPS5.TabIndex = 4;
+            this.textBoxPS5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxPS6
+            // 
+            this.textBoxPS6.Location = new System.Drawing.Point(340, 104);
+            this.textBoxPS6.MaxLength = 10;
+            this.textBoxPS6.Name = "textBoxPS6";
+            this.textBoxPS6.Size = new System.Drawing.Size(197, 27);
+            this.textBoxPS6.TabIndex = 5;
+            this.textBoxPS6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxPS7
+            // 
+            this.textBoxPS7.Location = new System.Drawing.Point(340, 137);
+            this.textBoxPS7.MaxLength = 10;
+            this.textBoxPS7.Name = "textBoxPS7";
+            this.textBoxPS7.Size = new System.Drawing.Size(197, 27);
+            this.textBoxPS7.TabIndex = 6;
+            this.textBoxPS7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxPS8
+            // 
+            this.textBoxPS8.Location = new System.Drawing.Point(340, 170);
+            this.textBoxPS8.MaxLength = 10;
+            this.textBoxPS8.Name = "textBoxPS8";
+            this.textBoxPS8.Size = new System.Drawing.Size(197, 27);
+            this.textBoxPS8.TabIndex = 7;
+            this.textBoxPS8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -418,8 +535,8 @@
             this.ClientSize = new System.Drawing.Size(652, 418);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("微軟正黑體", 11.25F, System.Drawing.FontStyle.Bold);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -433,6 +550,8 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -464,6 +583,16 @@
         private System.Windows.Forms.CheckBox b3chkbox;
         private System.Windows.Forms.CheckBox b2chkbox;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.TextBox textBoxPS1;
+        private System.Windows.Forms.TextBox textBoxPS8;
+        private System.Windows.Forms.TextBox textBoxPS7;
+        private System.Windows.Forms.TextBox textBoxPS6;
+        private System.Windows.Forms.TextBox textBoxPS5;
+        private System.Windows.Forms.TextBox textBoxPS4;
+        private System.Windows.Forms.TextBox textBoxPS3;
+        private System.Windows.Forms.TextBox textBoxPS2;
     }
 }
 
