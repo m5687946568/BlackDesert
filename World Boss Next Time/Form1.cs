@@ -93,9 +93,11 @@ namespace World_Boss_Next_Time
 
                 //第一項
                 var lvi = new ListViewItem(lvDate.ToString("yyyy/MM/dd"));
+                string st1 = bosstimecht[0, lvBTS] + ":" + bosstimecht[1, lvBTS];
+                string st2 = bossname[lvBTS, lvBWS, 0] + " " + bossname[lvBTS, lvBWS, 1];
                 lvi.BackColor = Color.YellowGreen;
-                lvi.SubItems.Add(bosstimecht[0, lvBTS] + ":" + bosstimecht[1, lvBTS]);
-                lvi.SubItems.Add(bossname[lvBTS, lvBWS, 0] + " " + bossname[lvBTS, lvBWS, 1]);
+                lvi.SubItems.Add(st1.Trim());
+                lvi.SubItems.Add(st2.Trim());
                 listView1.Items.Add(lvi);
                 listView1.Items[0].Selected = true;
 
@@ -104,8 +106,10 @@ namespace World_Boss_Next_Time
                 {
                     BossStageAdd(ref lvDate, ref lvBTS, ref lvBWS);
                     lvi = new ListViewItem(lvDate.ToString("yyyy/MM/dd"));
-                    lvi.SubItems.Add(bosstimecht[0, lvBTS] + ":" + bosstimecht[1, lvBTS]);
-                    lvi.SubItems.Add(bossname[lvBTS, lvBWS, 0] + " " + bossname[lvBTS, lvBWS, 1]);
+                    st1 = bosstimecht[0, lvBTS] + ":" + bosstimecht[1, lvBTS];
+                    st2 = bossname[lvBTS, lvBWS, 0] + " " + bossname[lvBTS, lvBWS, 1];
+                    lvi.SubItems.Add(st1.Trim());
+                    lvi.SubItems.Add(st2.Trim());
                     listView1.Items.Add(lvi);
                 }
             }
@@ -113,7 +117,8 @@ namespace World_Boss_Next_Time
             void ViewBossData(DateTime TodayDate, string bth, string btm, int week, string bn1, string bn2, Bitmap bp1, Bitmap bp2)
             {
                 string startstring = World_Boss_Next_Time.Properties.Settings.Default.StartString;
-                textBox1.Text = startstring + bth + btm + " " + bn1 + " " + bn2;
+                string st1 = startstring + bth + btm + " " + bn1 + " " + bn2;
+                textBox1.Text = st1.Trim();
                 groupBox1.Text = "下次世界王時間：" + TodayDate.ToString("yyyy/MM/dd") + "　" + bth + "：" + btm + "　" + GetWeekCht(week.ToString());
                 label2.Text = bn1;
                 label3.Text = bn2;

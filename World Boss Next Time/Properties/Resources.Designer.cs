@@ -139,5 +139,15 @@ namespace World_Boss_Next_Time.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   查詢類似 (圖示) 的類型 System.Drawing.Icon 當地語系化資源。
+        /// </summary>
+        internal static System.Drawing.Icon Cultures_Torah {
+            get {
+                object obj = ResourceManager.GetObject("Cultures_Torah", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

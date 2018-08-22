@@ -54,7 +54,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Cultures-Torah.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Cultures-Torah.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -105,9 +105,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\b1.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\b1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -141,13 +138,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\World Boss Next Time v1.6.exe" />
+    <None Include="Resources\Cultures-Torah.ico" />
     <None Include="Resources\b8.png" />
     <None Include="App\Old\World Boss Next Time v1.1.exe" />
     <None Include="App\Old\World Boss Next Time v1.2.exe" />
     <Content Include="App\Old\World Boss Next Time v1.3.exe" />
     <Content Include="App\Old\World Boss Next Time v1.4.exe" />
-    <Content Include="App\World Boss Next Time v1.5.exe" />
-    <Content Include="Cultures-Torah.ico" />
+    <Content Include="App\Old\World Boss Next Time v1.5.exe" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
