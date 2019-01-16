@@ -56,6 +56,9 @@
   <PropertyGroup>
     <ApplicationIcon>Resources\Cultures-Torah.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>World_Boss_Next_Time.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -138,7 +141,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App\World Boss Next Time v1.6.exe" />
+    <Content Include="App\Old\World Boss Next Time v1.6.exe" />
+    <Content Include="App\World Boss Next Time v1.7.exe" />
+    <None Include="Resources\b9.png" />
     <None Include="Resources\Cultures-Torah.ico" />
     <None Include="Resources\b8.png" />
     <None Include="App\Old\World Boss Next Time v1.1.exe" />

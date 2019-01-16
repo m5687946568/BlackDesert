@@ -29,5 +29,8 @@
     <Setting Name="BossName8" Type="System.String" Scope="User">
       <Value Profile="(Default)">貝爾</Value>
     </Setting>
+    <Setting Name="BossName9" Type="System.String" Scope="User">
+      <Value Profile="(Default)">卡莫斯</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

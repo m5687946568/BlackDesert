@@ -44,11 +44,11 @@ namespace World_Boss_Next_Time
             label1.Text = "現在時間：" + tyear + "／" + tmonth + "／" + tday + "　" + thour + "：" + tminute + "　" + GetWeekCht(tweek);
 
             //出現時間
-            int[] allbosstime = { 0200, 1100, 1500, 1900, 2330 };
+            int[] allbosstime = { 0015, 0200, 1100, 1500, 1900, 2330 };
             string[,] bosstimecht = new string[,]
             {
-                    { "02", "11", "15", "19", "23" },
-                    { "00", "00", "00", "00", "30" }
+                    { "00", "02", "11", "15", "19", "23" },
+                    { "15", "00", "00", "00", "00", "30" }
             };
 
             //世界王名字及圖片
@@ -61,23 +61,26 @@ namespace World_Boss_Next_Time
             Bitmap p6 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b6); string b6 = World_Boss_Next_Time.Properties.Settings.Default.BossName6;
             Bitmap p7 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b7); string b7 = World_Boss_Next_Time.Properties.Settings.Default.BossName7;
             Bitmap p8 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b8); string b8 = World_Boss_Next_Time.Properties.Settings.Default.BossName8;
-            BossFilter(ref b1, ref b2, ref b3, ref b4, ref b5, ref b6, ref b7, ref b8);
+            Bitmap p9 = new Bitmap(World_Boss_Next_Time.Properties.Resources.b9); string b9 = World_Boss_Next_Time.Properties.Settings.Default.BossName9;
+            BossFilter(ref b1, ref b2, ref b3, ref b4, ref b5, ref b6, ref b7, ref b8, ref b9);
 
             //各時段出現種類名稱及圖片 array[出現時段,星期,王1王2]
             string[,,] bossname = new string[,,]
                 {
+                    { { b0, b0 }, { b0, b0 }, { b0, b0 }, { b0, b0 }, { b0, b0 }, { b0, b0 }, { b9, b0 } },
                     { { b3, b4 }, { b1, b2 }, { b3, b0 }, { b4, b0 }, { b2, b0 }, { b1, b3 }, { b1, b2 } },
-                    { { b1, b3 }, { b4, b0 }, { b1, b2 }, { b1, b3 }, { b2, b0 }, { b5, b0 }, { b2, b4 } },
-                    { { b8, b0 }, { b1, b2 }, { b3, b0 }, { b4, b0 }, { b1, b3 }, { b3, b4 }, { b5, b0 } },
-                    { { b2, b4 }, { b4, b0 }, { b2, b0 }, { b1, b2 }, { b3, b0 }, { b1, b2 }, { b1, b3 } },
+                    { { b1, b3 }, { b4, b0 }, { b1, b2 }, { b1, b3 }, { b2, b4 }, { b5, b0 }, { b2, b4 } },
+                    { { b8, b0 }, { b1, b2 }, { b3, b4 }, { b9, b0 }, { b1, b3 }, { b3, b4 }, { b5, b0 } },
+                    { { b2, b4 }, { b9, b0 }, { b2, b0 }, { b1, b2 }, { b3, b0 }, { b1, b2 }, { b1, b3 } },
                     { { b5, b0 }, { b1, b2 }, { b1, b3 }, { b3, b4 }, { b2, b4 }, { b6, b7 }, { b0, b0 } }
             };
             Bitmap[,,] bossphoto = new Bitmap[,,]
                 {
+                    { { p0, p0 }, { p0, p0 }, { p0, p0 }, { p0, p0 }, { p0, p0 }, { p0, p0 }, { p9, p0 } },
                     { { p3, p4 }, { p1, p2 }, { p3, p0 }, { p4, p0 }, { p2, p0 }, { p1, p3 }, { p1, p2 } },
-                    { { p1, p3 }, { p4, p0 }, { p1, p2 }, { p1, p3 }, { p2, p0 }, { p5, p0 }, { p2, p4 } },
-                    { { p8, p0 }, { p1, p2 }, { p3, p0 }, { p4, p0 }, { p1, p3 }, { p3, p4 }, { p5, p0 } },
-                    { { p2, p4 }, { p4, p0 }, { p2, p0 }, { p1, p2 }, { p3, p0 }, { p1, p2 }, { p1, p3 } },
+                    { { p1, p3 }, { p4, p0 }, { p1, p2 }, { p1, p3 }, { p2, p4 }, { p5, p0 }, { p2, p4 } },
+                    { { p8, p0 }, { p1, p2 }, { p3, p4 }, { p9, p0 }, { p1, p3 }, { p3, p4 }, { p5, p0 } },
+                    { { p2, p4 }, { p9, p0 }, { p2, p0 }, { p1, p2 }, { p3, p0 }, { p1, p2 }, { p1, p3 } },
                     { { p5, p0 }, { p1, p2 }, { p1, p3 }, { p3, p4 }, { p2, p4 }, { p6, p7 }, { p0, p0 } }
             };
 
@@ -90,7 +93,6 @@ namespace World_Boss_Next_Time
             void BossListView(DateTime lvDate, int lvBTS, int lvBWS)
             {
                 listView1.Items.Clear();
-
                 //第一項
                 var lvi = new ListViewItem(lvDate.ToString("yyyy/MM/dd"));
                 string st1 = bosstimecht[0, lvBTS] + ":" + bosstimecht[1, lvBTS];
@@ -124,6 +126,19 @@ namespace World_Boss_Next_Time
                 label3.Text = bn2;
                 pictureBox1.Image = bp1;
                 pictureBox2.Image = bp2;
+                if (bn1 == null & bn2 == null)
+                {
+                    groupBox1.Text = null;
+                    textBox1.Visible = false;
+                    button1.Visible = false;
+                    button3.Enabled = false;
+                }
+                else
+                {
+                    textBox1.Visible = true;
+                    button1.Visible = true;
+                    button3.Enabled = true;
+                }
             }
 
             void BossStage(ref DateTime TodayDate, ref int BossTimeStage, ref int BossWeekStage)
@@ -219,16 +234,9 @@ namespace World_Boss_Next_Time
                 }
             }
 
-            void BossFilter(ref string boss1, ref string boss2, ref string boss3, ref string boss4, ref string boss5, ref string boss6, ref string boss7, ref string boss8)
+            void BossFilter(ref string boss1, ref string boss2, ref string boss3, ref string boss4, ref string boss5, ref string boss6, ref string boss7, ref string boss8, ref string boss9)
             {
-                b1chkbox.Text = b1;
-                b2chkbox.Text = b2;
-                b3chkbox.Text = b3;
-                b4chkbox.Text = b4;
-                b5chkbox.Text = b5;
-                b6chkbox.Text = b6;
-                b7chkbox.Text = b7;
-                b8chkbox.Text = b8;
+
                 if (b1chkbox.Checked == false) { b1 = null; p1 = null; }
                 if (b2chkbox.Checked == false) { b2 = null; p2 = null; }
                 if (b3chkbox.Checked == false) { b3 = null; p3 = null; }
@@ -237,6 +245,7 @@ namespace World_Boss_Next_Time
                 if (b6chkbox.Checked == false) { b6 = null; p6 = null; }
                 if (b7chkbox.Checked == false) { b7 = null; p7 = null; }
                 if (b8chkbox.Checked == false) { b8 = null; p8 = null; }
+                if (b9chkbox.Checked == false) { b9 = null; p9 = null; }
             }
 
         }
@@ -392,28 +401,27 @@ namespace World_Boss_Next_Time
             GC.Collect();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (panel1.Visible == true)
-            {
-                GetBossNextTime(tyear, tmonth, tday, thour, tminute, tweek);
-                panel1.Visible = false;
-            }
-            else
-            {
-                panel1.Visible = true;
-            }
-            GC.Collect();
-        }
-
         private void CheckBox1CkhChg(object sender, EventArgs e)
         {
             ItemViewChgLine();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button4_Click(object sender, EventArgs e)
         {
-            if (panel2.Visible == true)
+            if(listView1.Visible==true)
+            {
+                pictureBox1.Visible = true;
+                label2.Visible = true;
+                pictureBox2.Visible = true;
+                label3.Visible = true;
+                textBox1.Size = new Size(612, 27);
+                textBox1.Location = new Point(6, 257);
+                button1.Size = new Size(612, 44);
+                button1.Location = new Point(6, 292);
+                checkBox1.Visible = false;
+                listView1.Visible = false;
+            }
+            if (panel1.Visible == true)
             {
                 World_Boss_Next_Time.Properties.Settings.Default.BossName1 = textBoxPS1.Text;
                 World_Boss_Next_Time.Properties.Settings.Default.BossName2 = textBoxPS2.Text;
@@ -423,9 +431,10 @@ namespace World_Boss_Next_Time
                 World_Boss_Next_Time.Properties.Settings.Default.BossName6 = textBoxPS6.Text;
                 World_Boss_Next_Time.Properties.Settings.Default.BossName7 = textBoxPS7.Text;
                 World_Boss_Next_Time.Properties.Settings.Default.BossName8 = textBoxPS8.Text;
+                World_Boss_Next_Time.Properties.Settings.Default.BossName9 = textBoxPS9.Text;
                 World_Boss_Next_Time.Properties.Settings.Default.Save();
                 GetBossNextTime(tyear, tmonth, tday, thour, tminute, tweek);
-                panel2.Visible = false;
+                panel1.Visible = false;
             }
             else
             {
@@ -437,7 +446,8 @@ namespace World_Boss_Next_Time
                 textBoxPS6.Text = World_Boss_Next_Time.Properties.Settings.Default.BossName6;
                 textBoxPS7.Text = World_Boss_Next_Time.Properties.Settings.Default.BossName7;
                 textBoxPS8.Text = World_Boss_Next_Time.Properties.Settings.Default.BossName8;
-                panel2.Visible = true;
+                textBoxPS9.Text = World_Boss_Next_Time.Properties.Settings.Default.BossName9;
+                panel1.Visible = true;
             }
             GC.Collect();
         }
