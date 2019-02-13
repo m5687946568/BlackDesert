@@ -67,7 +67,7 @@ namespace World_Boss_Next_Time
             //各時段出現種類名稱及圖片 array[出現時段,星期,王1王2]
             string[,,] bossname = new string[,,]
                 {
-                    { { b0, b0 }, { b0, b0 }, { b0, b0 }, { b0, b0 }, { b0, b0 }, { b0, b0 }, { b9, b0 } },
+                    { { b0, b0 }, { b6, b7 }, { b0, b0 }, { b0, b0 }, { b0, b0 }, { b0, b0 }, { b9, b0 } },
                     { { b3, b4 }, { b1, b2 }, { b3, b0 }, { b4, b0 }, { b2, b0 }, { b1, b3 }, { b1, b2 } },
                     { { b1, b3 }, { b4, b0 }, { b1, b2 }, { b1, b3 }, { b2, b4 }, { b5, b0 }, { b2, b4 } },
                     { { b8, b0 }, { b1, b2 }, { b3, b4 }, { b9, b0 }, { b1, b3 }, { b3, b4 }, { b5, b0 } },
@@ -76,7 +76,7 @@ namespace World_Boss_Next_Time
             };
             Bitmap[,,] bossphoto = new Bitmap[,,]
                 {
-                    { { p0, p0 }, { p0, p0 }, { p0, p0 }, { p0, p0 }, { p0, p0 }, { p0, p0 }, { p9, p0 } },
+                    { { p0, p0 }, { p6, p7 }, { p0, p0 }, { p0, p0 }, { p0, p0 }, { p0, p0 }, { p9, p0 } },
                     { { p3, p4 }, { p1, p2 }, { p3, p0 }, { p4, p0 }, { p2, p0 }, { p1, p3 }, { p1, p2 } },
                     { { p1, p3 }, { p4, p0 }, { p1, p2 }, { p1, p3 }, { p2, p4 }, { p5, p0 }, { p2, p4 } },
                     { { p8, p0 }, { p1, p2 }, { p3, p4 }, { p9, p0 }, { p1, p3 }, { p3, p4 }, { p5, p0 } },
@@ -339,6 +339,19 @@ namespace World_Boss_Next_Time
             }
         }
 
+        public void UpdataTimerTimeChg()
+        {
+            int utnumber = Convert.ToInt16(UThour.Value) * 60 * 60 * 1000 + Convert.ToInt16(UTminute.Value) * 60 * 1000 + Convert.ToInt16(UTsecond.Value) * 1000;
+            if (utnumber == 0)
+            {
+                UTchkbox.Checked = false;
+            }
+            else
+            {
+                UpdataTimer.Interval = utnumber;
+            }
+        }
+
         private void TextBox1Click(object sender, EventArgs e)
         {
             ((TextBox)sender).SelectAll();
@@ -449,6 +462,45 @@ namespace World_Boss_Next_Time
                 textBoxPS9.Text = World_Boss_Next_Time.Properties.Settings.Default.BossName9;
                 panel1.Visible = true;
             }
+            GC.Collect();
+        }
+
+        private void utchkboxchg(object sender, EventArgs e)
+        {
+            if (UTchkbox.Checked == Enabled)
+            {
+                UTpanel.Enabled = true;
+                UpdataTimer.Enabled = true;
+            }
+            else
+            {
+                UTpanel.Enabled = false;
+                UpdataTimer.Enabled = false;
+                UTsecond.Value = 0;
+                UTminute.Value = 1;
+                UThour.Value = 0;
+            }
+        }
+
+        private void UTsecondChg(object sender, EventArgs e)
+        {
+            UpdataTimerTimeChg();
+        }
+
+        private void UTminuteChg(object sender, EventArgs e)
+        {
+            UpdataTimerTimeChg();
+        }
+
+        private void UThourChg(object sender, EventArgs e)
+        {
+            UpdataTimerTimeChg();
+        }
+
+        private void UpdataTimer_Tick(object sender, EventArgs e)
+        {
+            NowDateTime(ref tyear, ref tmonth, ref tday, ref thour, ref tminute, ref tweek);
+            GetBossNextTime(tyear, tmonth, tday, thour, tminute, tweek);
             GC.Collect();
         }
     }
