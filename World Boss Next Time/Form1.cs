@@ -67,7 +67,7 @@ namespace World_Boss_Next_Time
             //各時段出現種類名稱及圖片 array[出現時段,星期,王1王2]
             string[,,] bossname = new string[,,]
                 {
-                    { { b0, b0 }, { b0, b0 }, { b0, b0 }, { b0, b0 }, { b0, b0 }, { b0, b0 }, { b9, b0 } },
+                    { { b0, b0 }, { b6, b7 }, { b0, b0 }, { b0, b0 }, { b0, b0 }, { b0, b0 }, { b9, b0 } },
                     { { b3, b4 }, { b1, b2 }, { b3, b0 }, { b4, b0 }, { b2, b0 }, { b1, b3 }, { b1, b2 } },
                     { { b1, b3 }, { b4, b0 }, { b1, b2 }, { b1, b3 }, { b2, b4 }, { b5, b0 }, { b2, b4 } },
                     { { b8, b0 }, { b1, b2 }, { b3, b4 }, { b9, b0 }, { b1, b3 }, { b3, b4 }, { b5, b0 } },
@@ -76,7 +76,7 @@ namespace World_Boss_Next_Time
             };
             Bitmap[,,] bossphoto = new Bitmap[,,]
                 {
-                    { { p0, p0 }, { p0, p0 }, { p0, p0 }, { p0, p0 }, { p0, p0 }, { p0, p0 }, { p9, p0 } },
+                    { { p0, p0 }, { p6, p7 }, { p0, p0 }, { p0, p0 }, { p0, p0 }, { p0, p0 }, { p9, p0 } },
                     { { p3, p4 }, { p1, p2 }, { p3, p0 }, { p4, p0 }, { p2, p0 }, { p1, p3 }, { p1, p2 } },
                     { { p1, p3 }, { p4, p0 }, { p1, p2 }, { p1, p3 }, { p2, p4 }, { p5, p0 }, { p2, p4 } },
                     { { p8, p0 }, { p1, p2 }, { p3, p4 }, { p9, p0 }, { p1, p3 }, { p3, p4 }, { p5, p0 } },
