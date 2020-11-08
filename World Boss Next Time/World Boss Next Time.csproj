@@ -28,7 +28,7 @@
     <SuiteName>World Boss Next Time</SuiteName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -108,27 +108,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\b1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\b2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\b3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\b4.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\b5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\b6.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\b7.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.6.1 %28x86 與 x64%29</ProductName>
@@ -143,17 +122,87 @@
   <ItemGroup>
     <Content Include="App\Old\World Boss Next Time v1.6.exe" />
     <Content Include="App\Old\World Boss Next Time v1.7.exe" />
-    <Content Include="App\World Boss Next Time v1.9.exe" />
+    <Content Include="App\Old\World Boss Next Time v1.9.exe" />
     <Content Include="App\Old\World Boss Next Time v1.8.exe" />
-    <None Include="Resources\b9.png" />
+    <Content Include="App\World Boss Next Time v2.0.exe" />
     <None Include="Resources\Cultures-Torah.ico" />
-    <None Include="Resources\b8.png" />
     <None Include="App\Old\World Boss Next Time v1.1.exe" />
     <None Include="App\Old\World Boss Next Time v1.2.exe" />
     <Content Include="App\Old\World Boss Next Time v1.3.exe" />
     <Content Include="App\Old\World Boss Next Time v1.4.exe" />
     <Content Include="App\Old\World Boss Next Time v1.5.exe" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PublishFile Include="App\Old\World Boss Next Time v1.3.exe">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="App\Old\World Boss Next Time v1.4.exe">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="App\Old\World Boss Next Time v1.5.exe">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="App\Old\World Boss Next Time v1.6.exe">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="App\Old\World Boss Next Time v1.7.exe">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="App\Old\World Boss Next Time v1.8.exe">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+    <PublishFile Include="App\World Boss Next Time v1.9.exe">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>False</IncludeHash>
+      <FileType>File</FileType>
+    </PublishFile>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
